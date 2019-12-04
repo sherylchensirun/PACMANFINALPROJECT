@@ -78,7 +78,8 @@ class App:
                     elif char in ["W", "X", "Y", "Z"]:
                         self.e_pos.append([xidx, yidx])
                     elif char == "B":
-                        #draw on background so no need to account for the top & bottom space since it does not need to be updated each time the game runs,
+                        #draw on background so no need to account for the top & bottom space
+                        #     since it does not need to be updated each time the game runs,
                         #xidx*self.cell_width, yidx*self.cell_width is to indicate the pixel position
                         pygame.draw.rect(self.background, BLACK, (xidx*self.cell_width, yidx*self.cell_height,
                                                                   self.cell_width, self.cell_height))
@@ -119,7 +120,7 @@ class App:
         self.state = "playing"
 
 
-########################### INTRO FUNCTIONS ####################################
+###### START SCREEN FUNCTIONS
 
     def start_events(self):
         for event in pygame.event.get():
@@ -141,7 +142,7 @@ class App:
                        START_TEXT_SIZE, WHITE, START_FONT)
         pygame.display.update()
 
-########################### PLAYING FUNCTIONS ##################################
+##### PLAYING/ FUNCTIONS ABOUT THE PLAYER
 
     def playing_events(self):
         for event in pygame.event.get():
@@ -193,16 +194,13 @@ class App:
                 enemy.pix_pos = enemy.get_pix_pos()
                 enemy.direction *= 0
 
-#position of the circle is the centre of the circle and it is drawn on the screen hence it is (int(coin.x*self.cell_width)+self.cell_width//2+TOP_BOTTOM_BUFFER//2,int(coin.y*self.cell_height)+self.cell_height//2+TOP_BOTTOM_BUFFER//2), 5)
-
-
     def draw_coins(self):
         for coin in self.coins:
             pygame.draw.circle(self.screen, WHITE,
                                (int(coin.x*self.cell_width)+self.cell_width//2+TOP_BOTTOM_BUFFER//2,
                                 int(coin.y*self.cell_height)+self.cell_height//2+TOP_BOTTOM_BUFFER//2), 5)
 
-########################### GAME OVER FUNCTIONS ################################
+######## GAME OVER FUNCTIONS
 
     def game_over_events(self):
         for event in pygame.event.get():

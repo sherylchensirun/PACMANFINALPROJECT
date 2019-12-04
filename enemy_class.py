@@ -27,7 +27,7 @@ class Enemy:
             if self.time_to_move():
                 self.move()
 
-        # Setting grid position in reference to pix position
+#Setting grid position in reference to pix position
         self.grid_pos[0] = (self.pix_pos[0]-TOP_BOTTOM_BUFFER +
                             self.app.cell_width//2)//self.app.cell_width+1
         self.grid_pos[1] = (self.pix_pos[1]-TOP_BOTTOM_BUFFER +
@@ -83,7 +83,6 @@ class Enemy:
         ydir = next_cell[1] - self.grid_pos[1]
         return vec(xdir, ydir)
 
-#use breadth first search
     def find_next_cell_in_path(self, target):
         path = self.BFS([int(self.grid_pos.x), int(self.grid_pos.y)], [
                         int(target[0]), int(target[1])])

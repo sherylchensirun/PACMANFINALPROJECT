@@ -13,7 +13,7 @@ class Player:
         self.stored_direction = None
         self.able_to_move = True
         self.current_score = 0
-        self.speed = 2
+        self.speed = 4
         self.lives = 1
 
     def update(self):
@@ -28,7 +28,7 @@ class Player:
                             self.app.cell_width//2)//self.app.cell_width+1
         self.grid_pos[1] = (self.pix_pos[1]-TOP_BOTTOM_BUFFER +
                             self.app.cell_height//2)//self.app.cell_height+1
- #if player position is in coin position, coin position will be removed (refer to their definitions below
+ #if player position is in coin position, coin position will be removed (refer to their definitions below)
         if self.on_coin():
             self.eat_coin()
 
